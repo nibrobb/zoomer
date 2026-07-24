@@ -86,7 +86,7 @@ fn compile_vertex_shader(source: &CStr) -> Result<GLuint, String> {
         gl::ShaderSource(
             vertex_shader,
             1,
-            source.as_ptr() as *const *const GLchar,
+            &(source.as_ptr()) as *const *const GLchar,
             std::ptr::null(),
         );
         gl::CompileShader(vertex_shader);
@@ -118,7 +118,7 @@ fn compile_fragment_shader(source: &CStr) -> Result<GLuint, String> {
         gl::ShaderSource(
             fragment_shader,
             1,
-            source.as_ptr() as *const *const GLchar,
+            &(source.as_ptr()) as *const *const GLchar,
             std::ptr::null(),
         );
         gl::CompileShader(fragment_shader);
